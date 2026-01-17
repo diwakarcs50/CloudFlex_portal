@@ -16,6 +16,15 @@ A modern project management system built with Next.js 15 and PostgreSQL, featuri
 - **Role**: member
 - **User ID**: b9e10454-fd51-46f2-b9b3-eaf617fc579c
 
+### To register a new User:
+
+
+- This is a Test Company
+- **Client ID**: 63942789-98d4-4586-bb95-5c694730cb96
+
+
+
+
 ## �🚀 Quick Start
 
 ### Prerequisites
@@ -34,14 +43,19 @@ cd CloudFlex_portal
 npm install
 
 # Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your database credentials
+create a .env setup with 
+DB_HOST=***
+DB_PORT=5432
+DB_USER=***
+DB_PASSWORD=***
+DB_NAME=***
+
+# JWT Configuration
+JWT_SECRET=***
+JWT_EXPIRES_IN=***
 
 # Initialize database
 npx tsx scripts/init-db.ts
-
-# Create admin user
-npx tsx scripts/create-admin-user.ts
 
 # Run development server
 npm run dev
@@ -389,10 +403,6 @@ npm start
 ```
 
 ### Environment Variables
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/cloudflex
-JWT_SECRET=your-secret-key-change-this-in-production
-JWT_EXPIRES_IN=7d
 ```
 
 ---
@@ -460,11 +470,6 @@ npm run create-test-data
 # Clean up test data
 npm run clean-test-data
 ```
-
-**Test Credentials:**
-- `admin@test.com` / `Test123!` (Admin - full access)
-- `dev1@test.com` / `Test123!` (Member - project owner)
-- `dev2@test.com` / `Test123!` (Member - developer/viewer)
 
 ### API Testing
 - Import `thunder-collection.json` into Thunder Client (VS Code)
@@ -561,39 +566,33 @@ CloudFlex_portal/
 
 ## 🎯 Features
 
-✅ **Multi-Tenancy**
+ **Multi-Tenancy**
 - Complete client isolation
 - Users can only access their company's data
 - Prevents cross-company data leaks
 
-✅ **Role-Based Access Control**
+ **Role-Based Access Control**
 - Global roles (admin, member)
 - Project-level roles (owner, developer, viewer)
 - Granular permission checks
 
-✅ **Complete CRUD Operations**
+ **Complete CRUD Operations**
 - Clients, Users, Projects, Team Assignments
 - Full validation and error handling
 - Business rule enforcement
 
-✅ **Security**
+ **Security**
 - JWT-based authentication
 - HTTP-only cookies
 - Password hashing with bcrypt
 - SQL injection protection (TypeORM)
 
-✅ **Business Rules**
+  **Business Rules**
 - At least one owner per project
 - Automatic owner assignment on project creation
 - Email uniqueness validation
 - Proper foreign key relationships
 
-## 📖 Documentation
-
-- **Quick Reference:** `TESTING-QUICK-REFERENCE.md`
-- **Complete API Guide:** `docs/API-TESTING-GUIDE.md`
-- **Phase 5 Summary:** `docs/PHASE-5-COMPLETE.md`
-- **Thunder Client Collection:** `thunder-collection.json`
 
 ## 🧹 NPM Scripts
 
@@ -605,22 +604,6 @@ npm run db:init          # Initialize database
 npm run create-test-data # Create test data
 npm run clean-test-data  # Remove test data
 ```
-
-## 📝 Development Phases
-
-- ✅ **Phase 1:** Authentication API
-- ✅ **Phase 2:** Clients & Users API
-- ✅ **Phase 3:** Projects API
-- ✅ **Phase 4:** Project Team Management API
-- ✅ **Phase 5:** Backend Testing & Documentation
-- 🔜 **Phase 6:** Frontend Development
-
-## 🤝 Contributing
-
-1. Create test data: `npm run create-test-data`
-2. Start dev server: `npm run dev`
-3. Test your changes with provided credentials
-4. Clean up: `npm run clean-test-data`
 
 ## 📄 License
 
