@@ -1,5 +1,9 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import { Client } from '@/entities/Client';
+import { User } from '@/entities/User';
+import { Project } from '@/entities/Project';
+import { ProjectUser } from '@/entities/ProjectUser';
 
 let dataSource: DataSource | null = null;
 
@@ -18,7 +22,7 @@ export const getDataSource = async (): Promise<DataSource> => {
     ssl: process.env.DB_HOST?.includes('neon.tech') || process.env.DB_HOST?.includes('supabase') 
       ? { rejectUnauthorized: false }
       : false,
-    entities: [],
+    entities: [Client, User, Project, ProjectUser],
     synchronize: process.env.NODE_ENV !== 'production',
     logging: process.env.NODE_ENV === 'development',
     extra: {
@@ -29,10 +33,10 @@ export const getDataSource = async (): Promise<DataSource> => {
 
   try {
     await dataSource.initialize();
-    console.log('✅ Database connected successfully');
+    console.log(' Database connected successfully');
     return dataSource;
   } catch (error) {
-    console.error('❌ Database connection failed:', error);
+    console.error(' Database connection failed:', error);
     throw error;
   }
 };
@@ -41,7 +45,7 @@ export const closeDataSource = async (): Promise<void> => {
   if (dataSource && dataSource.isInitialized) {
     await dataSource.destroy();
     dataSource = null;
-    console.log('🔌 Database connection closed');
+    console.log(' Database connection closed');
   }
 };
 
