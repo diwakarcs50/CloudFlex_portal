@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "db:init": "tsx scripts/init-db.ts",
-    "test:auth": "tsx scripts/test-auth.ts"
+    "test:auth": "tsx scripts/test-auth.ts",
+    "create-test-data": "tsx scripts/create-test-data.ts",
+    "clean-test-data": "tsx scripts/clean-test-data.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

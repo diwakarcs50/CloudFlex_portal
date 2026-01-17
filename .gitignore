@@ -32,6 +32,18 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Test files
-public/
+# Documentation files
+docs/
+*.md
+!README.md
+
+# Testing and development scripts
 scripts/
+public/test-*.html
+thunder-collection.json
+API_TESTS.md
+TESTING-QUICK-REFERENCE.md
+PHASE-6-QUICK-REF.md
+
+# Environment examples
+.env.example

@@ -33,10 +33,10 @@ export const getDataSource = async (): Promise<DataSource> => {
 
   try {
     await dataSource.initialize();
-    console.log(' Database connected successfully');
+    console.log('Database connected successfully');
     return dataSource;
   } catch (error) {
-    console.error(' Database connection failed:', error);
+    console.error('Database connection failed:', error);
     throw error;
   }
 };
@@ -45,7 +45,7 @@ export const closeDataSource = async (): Promise<void> => {
   if (dataSource && dataSource.isInitialized) {
     await dataSource.destroy();
     dataSource = null;
-    console.log(' Database connection closed');
+    console.log('Database connection closed');
   }
 };
 
